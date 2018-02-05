@@ -126,6 +126,29 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+        - "Coordenada"
+      description: "Remove coordenada com esse id"
+      # used as the method name of the controller
+      operationId: "removeCoordenada"
+      parameters:
+        - name: "coordenada_id"
+          in: path
+          description: "Id da coordenada"
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/Coordenada"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
             
             
   /estaca:
@@ -233,6 +256,9 @@ paths:
 definitions:
   Coordenada:
     type: "object"
+    required:
+      - latitude
+      - longitude
     properties:
       id:
         type: "integer"
@@ -243,8 +269,8 @@ definitions:
       longitude:
         type: "number"
         format: "double"
-      geom:
-        type: "string"
+
+
   Estaca:
     type: "object"
     properties:

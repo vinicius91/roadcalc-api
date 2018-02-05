@@ -4,7 +4,7 @@ var Fs = require('fs');
 var Path = require('path');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('roadcalcapi', 'root', '', {
+var sequelize = new Sequelize('roadcake', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
     define: {
